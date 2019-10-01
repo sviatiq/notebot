@@ -38,6 +38,7 @@ public class Bot extends TelegramLongPollingBot {
                     sendMsg(message, "What we will change?");
                     break;
                 default:
+                    sendMsg(message, "Hello!");
                     try{
                         sendMsg(message, Weather.getWeather(message.getText(), model));
                     }catch (IOException ex){
