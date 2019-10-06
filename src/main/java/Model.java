@@ -3,7 +3,6 @@ public class Model {
     private String name;
     private Double temp;
     private Double humidity;
-    private String icon;
     private String main;
 
     public String getName() {
@@ -28,14 +27,6 @@ public class Model {
 
     public void setHumidity(Double humidity) {
         this.humidity = humidity;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
     }
 
     public String getMain() {

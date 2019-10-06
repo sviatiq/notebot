@@ -3,14 +3,13 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
 public class Weather {
 
-    //36e818d7b7bf6e8b1378e23392aab50d
-    public static String getWeather(String message, Model model) throws IOException {
+    public static String getWeather(String message) throws IOException {
+        Model model = new Model();
         URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q="+message+"&units=metric&&appid=36e818d7b7bf6e8b1378e23392aab50d");
 
         Scanner in = new Scanner((InputStream) url.getContent());
@@ -28,12 +27,11 @@ public class Weather {
         JSONArray jsonArray = object.getJSONArray("weather");
         for(int i = 0; i<jsonArray.length(); i++){
             JSONObject obj = jsonArray.getJSONObject(i);
-            model.setIcon((String)obj.get("icon"));
             model.setMain((String)obj.get("main"));
         }
-        return "Город: " + model.getName() +
-                "\n"+ "Температура : " + model.getTemp()+"C"+"\n"
-                +"Влажность: " + model.getHumidity() + "%" +"\n"
-                +"Описание: "+ model.getMain();
+        return "\uD83C\uDFD9Город: " + model.getName() +
+                "\n"+ "\uD83C\uDF26Температура : " + model.getTemp()+" ºC"+"\n"
+                +"\uD83D\uDCA7Влажность: " + model.getHumidity() + "%" +"\n"
+                +"\uD83D\uDDD2Описание: "+ model.getMain();
     }
 }
