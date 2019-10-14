@@ -21,12 +21,12 @@ public class Bot extends TelegramLongPollingBot {
 
     public static void main(String[] args) {
         ApiContextInitializer.init();
+        Bot.disableWarning();
         TelegramBotsApi telegramBot = new TelegramBotsApi();
         try {
             telegramBot.registerBot(new Bot());
         } catch (TelegramApiException e) {
             e.printStackTrace();
-
         }
 
     }
@@ -95,7 +95,6 @@ public class Bot extends TelegramLongPollingBot {
         }
     }
 
-
     public void sendMsg(Message message, String text, boolean reply) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
@@ -138,5 +137,10 @@ public class Bot extends TelegramLongPollingBot {
 
     public String getBotToken() {
         return "850911996:AAGN3oiHTePaKm7oFOp_Lq4SElJQnrEKRmY";
+    }
+
+    public static void disableWarning() {
+        System.err.close();
+        System.setErr(System.out);
     }
 }

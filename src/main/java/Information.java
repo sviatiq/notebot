@@ -1,4 +1,7 @@
 import config.Config;
+
+import java.sql.Connection;
+
 import org.telegram.telegrambots.api.objects.Message;
 
 import java.sql.*;
@@ -8,6 +11,7 @@ public class Information {
     private static final String GET_SHEDULE = "SELECT * FROM shedule";
     private static final String INSERT_DATA = "INSERT INTO shedule(week, date, time, location, description) VALUES (?, ?, ?, ?, ?)";
     private static final String FIND_BY_DATE = "SELECT week, time, location, description FROM shedule WHERE date like ?";
+    private static final String FIND_BY_LOCATION = "SELECT location";
     private static Bot bot = new Bot();
 
     private Connection getConnection() throws SQLException {
@@ -39,9 +43,8 @@ public class Information {
                                 "\uD83D\uDCC6Date: " + rs.getString("date") + "\n" +
                                 "\uD83D\uDCCDLocation: " + rs.getString("location") + "\n" +
                                 "\uD83D\uDCDDDescription: " + rs.getString("description"), false);
+                rs.close();
             }
-
-            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -49,23 +52,16 @@ public class Information {
 
     public void getSheduleByDate(Message message, String pattern) {
         try (Connection con = getConnection(); PreparedStatement stmt = con.prepareStatement(FIND_BY_DATE)) {
-
-            stmt.setString(1,  pattern + "%");
+            stmt.setString(1, pattern + "%");
             ResultSet resultSet = stmt.executeQuery();
-
             while (resultSet.next()) {
-                if (resultSet.next()) {
-                    bot.sendMsg(message, "This day is free!", false);
-                } else {
-                    bot.sendMsg(message, "\uD83D\uDCCBWeek is " + resultSet.getString("week") + "\n" +
-                            "\uD83D\uDD56Time: " + resultSet.getString("time") + "\n" +
-                            "\uD83D\uDCCDLocation: " + resultSet.getString("location") + "\n" +
-                            "\uD83D\uDCDDDescription: " + resultSet.getString("description"), false);
-                }
+                bot.sendMsg(message, "\uD83D\uDCCBWeek is " + resultSet.getString("week") + "\n" +
+                        "\uD83D\uDD56Time: " + resultSet.getString("time") + "\n" +
+                        "\uD83D\uDCCDLocation: " + resultSet.getString("location") + "\n" +
+                        "\uD83D\uDCDDDescription: " + resultSet.getString("description"), false);
             }
-            resultSet.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            } catch(SQLException ex){
+                ex.printStackTrace();
+            }
         }
     }
-}
