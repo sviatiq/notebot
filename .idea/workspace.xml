@@ -2,26 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9234ddde-3dd3-4e49-b034-4b8c889c11c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6afb253a-1bbf-4d0b-8c14-5ffd308dfe64.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6afb253a-1bbf-4d0b-8c14-5ffd308dfe64/storage_v2/_src_/database/BotTable.Z7aggg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6afb253a-1bbf-4d0b-8c14-5ffd308dfe64/storage_v2/_src_/database/BotTable.Z7aggg/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoteBot.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Information.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Information.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dao.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dao.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Bot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Bot.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Information.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Information.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Shedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Shedule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Weather.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Weather.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config/Config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -179,7 +167,9 @@
       <workItem from="1570524186032" duration="5870000" />
       <workItem from="1570640241708" duration="1930000" />
       <workItem from="1571034725142" duration="1101000" />
-      <workItem from="1571036603814" duration="7309000" />
+      <workItem from="1571036603814" duration="10436000" />
+      <workItem from="1571133980825" duration="11786000" />
+      <workItem from="1571204418003" duration="4055000" />
     </task>
     <servers />
   </component>

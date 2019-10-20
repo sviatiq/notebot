@@ -33,13 +33,12 @@ public class Bot extends TelegramLongPollingBot {
 
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
-
         if (message != null && message.hasText()) {
             switch (action) {
                 case "Week is awaiting!":
                     shedule.setWeek(message.getText());
                     sendMsg(message, "Set time!\uD83D\uDD56", false);
-                    action= "Time is awaiting!";
+                    action = "Time is awaiting!";
                     break;
                 case "Time is awaiting!":
                     shedule.setTime(message.getText());
@@ -62,34 +61,57 @@ public class Bot extends TelegramLongPollingBot {
                     info.addInformation(shedule);
                     action = "";
                     break;
+
                 case "Wait for date":
                     info.getSheduleByDate(message, message.getText());
                     action = "";
                     break;
-                    default:
+
+                case "Wait for location":
+                    info.getSheduleByLocation(message, message.getText());
+                    action = "";
+                    break;
+
+                case "Wait for day":
+                    if (message.getText().equals("1")) {
+                        info.showEducationShedule1(message, message.getText());
+                     } else {
+                        info.showEducationShedule2(message, message.getText());
+                    }
+                    action = "";
+                    break;
+                default:
                     switch (message.getText()) {
                         case "/help":
                             sendMsg(message, "Can I help you?\uD83D\uDE0F", true);
                             break;
-                        case "/setting":
+                        case "/set":
                             sendMsg(message, "Let's set your shedule!\uD83D\uDE09", true);
                             sendMsg(message, "Set week!\uD83D\uDCCB", false);
                             action = "Week is awaiting!";
                             shedule = new Shedule();
                             break;
-                        case "/shedule":
+                        case "/sh":
                             info.showFullShedule(message);
                             break;
-                        case "/sheduleByDate":
+                        case "/shDate":
                             sendMsg(message, "Type in date\uD83D\uDCC6", false);
                             action = "Wait for date";
                             break;
+                        case "/shLoc":
+                            sendMsg(message, "Type in location\uD83D\uDCCD", false);
+                            action = "Wait for location";
+                            break;
+                        case "/edu":
+                            sendMsg(message, "What is a day?", false);
+                            action = "Wait for day";
+                            break;
                         default:
-                            try {
-                                sendMsg(message, Weather.getWeather(message.getText()), true);
-                            } catch (IOException ex) {
-                                sendMsg(message, "City not found!\uD83D\uDE30", true);
-                            }
+//                            try {
+//                                sendMsg(message, Weather.getWeather(message.getText()), true);
+//                            } catch (IOException ex) {
+//                                sendMsg(message, "City not found!\uD83D\uDE30", true);
+//                            }
                     }
             }
         }
@@ -122,9 +144,11 @@ public class Bot extends TelegramLongPollingBot {
         List<KeyboardRow> keyboardRowList = new ArrayList<>();
         KeyboardRow keyboardFirstRow = new KeyboardRow();
         keyboardFirstRow.add(new KeyboardButton("/help"));
-        keyboardFirstRow.add(new KeyboardButton("/setting"));
-        keyboardFirstRow.add(new KeyboardButton("/shedule"));
-        keyboardFirstRow.add(new KeyboardButton("/sheduleByDate"));
+        keyboardFirstRow.add(new KeyboardButton("/set"));
+        keyboardFirstRow.add(new KeyboardButton("/sh"));
+        keyboardFirstRow.add(new KeyboardButton("/shDate"));
+        keyboardFirstRow.add(new KeyboardButton("/shLoc"));
+        keyboardFirstRow.add(new KeyboardButton("/edu"));
 
         keyboardRowList.add(keyboardFirstRow);
         keyboard.setKeyboard(keyboardRowList);
